@@ -55,6 +55,7 @@ public class MergeSort {
         }
         System.out.println("Left: " + Arrays.toString(L));
         System.out.println("Right: " + Arrays.toString(R));
+        System.out.println("Sorted: " + Arrays.toString(arr));
 
     }
 }
