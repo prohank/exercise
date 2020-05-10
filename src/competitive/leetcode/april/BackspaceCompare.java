@@ -1,8 +1,7 @@
 package competitive.leetcode.april;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Stack;
+
 
 public class BackspaceCompare {
     public static void main(String[] args) {
@@ -16,28 +15,62 @@ public class BackspaceCompare {
     }
 
     public boolean backspaceCompare(String S, String T) {
-        List<Character> sCharArr = new ArrayList<>();
-        List<Character> tCharArr = new ArrayList<>();
-        for (Character c : S.toCharArray()) sCharArr.add(c);
-        for (Character c : T.toCharArray()) tCharArr.add(c);
-
-        for (int i = sCharArr.size() - 1; i >= 0; i--) {
-            while (i >= 0 && sCharArr.get(i) == '#') i--;
-            if (i >= 0 && i < sCharArr.size() - 1 && sCharArr.get(i + 1) == '#') {
-                sCharArr.remove(i + 1);
-                sCharArr.remove(i);
+        Stack<Character> opCharStack = new Stack<>();
+        String s, t;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < S.length(); i++) {
+            if (S.charAt(i) == '#') {
+                if (!opCharStack.isEmpty()) opCharStack.pop();
+            } else {
+                opCharStack.push(S.charAt(i));
             }
         }
-        sCharArr.removeAll(Collections.singleton('#'));
-        for (int i = tCharArr.size() - 1; i >= 0; i--) {
-            while (i >= 0 && tCharArr.get(i) == '#') i--;
-            if (i >= 0 && i < tCharArr.size() - 1 && tCharArr.get(i + 1) == '#') {
-                tCharArr.remove(i + 1);
-                tCharArr.remove(i);
+        for (Character c : opCharStack) {
+            sb.append(c);
+        }
+        s = sb.toString();
+
+        opCharStack.removeAllElements();
+        sb.setLength(0);
+        for (int i = 0; i < T.length(); i++) {
+            if (T.charAt(i) == '#') {
+                if (!opCharStack.isEmpty()) opCharStack.pop();
+            } else {
+                opCharStack.push(T.charAt(i));
             }
         }
-        tCharArr.removeAll(Collections.singleton('#'));
-
-        return String.valueOf(sCharArr).equals(String.valueOf(tCharArr)) ? Boolean.TRUE : Boolean.FALSE;
+        for (Character c : opCharStack) {
+            sb.append(c);
+        }
+        t = sb.toString();
+        return s.equals(t) ? Boolean.TRUE : Boolean.FALSE;
     }
 }
+
+//////////////////////////////////////////////////////////
+//public boolean backspaceCompare(String S, String T) {
+//
+//    List<Character> sCharArr = new ArrayList<>();
+//    List<Character> tCharArr = new ArrayList<>();
+//    for (Character c : S.toCharArray()) sCharArr.add(c);
+//    for (Character c : T.toCharArray()) tCharArr.add(c);
+//
+//    for (int i = sCharArr.size() - 1; i >= 0; i--) {
+//        while (i >= 0 && sCharArr.get(i) == '#') i--;
+//        if (i >= 0 && i < sCharArr.size() - 1 && sCharArr.get(i + 1) == '#') {
+//            sCharArr.remove(i + 1);
+//            sCharArr.remove(i);
+//        }
+//    }
+//    sCharArr.removeAll(Collections.singleton('#'));
+//    for (int i = tCharArr.size() - 1; i >= 0; i--) {
+//        while (i >= 0 && tCharArr.get(i) == '#') i--;
+//        if (i >= 0 && i < tCharArr.size() - 1 && tCharArr.get(i + 1) == '#') {
+//            tCharArr.remove(i + 1);
+//            tCharArr.remove(i);
+//        }
+//    }
+//    tCharArr.removeAll(Collections.singleton('#'));
+//
+//    return String.valueOf(sCharArr).equals(String.valueOf(tCharArr)) ? Boolean.TRUE : Boolean.FALSE;
+//}
