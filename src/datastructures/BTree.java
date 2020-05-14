@@ -28,15 +28,15 @@ public class BTree {
     }
 
     private TreeNode deleteNodeRecursive(int input, TreeNode currentNode) {
-        if(currentNode == null) return null;
-        if(input == currentNode.getData()) {
-            if(currentNode.getLeft() == null && currentNode.getRight() == null){
+        if (currentNode == null) return null;
+        if (input == currentNode.getData()) {
+            if (currentNode.getLeft() == null && currentNode.getRight() == null) {
                 return null;
             }
-            if(currentNode.getLeft() == null){
+            if (currentNode.getLeft() == null) {
                 return currentNode.getRight();
             }
-            if(currentNode.getRight() == null){
+            if (currentNode.getRight() == null) {
                 return currentNode.getLeft();
             }
             int smallestValueOnRightSubTree = findSmallestValue(currentNode.getRight());
@@ -45,11 +45,11 @@ public class BTree {
             return currentNode;
 
         }
-        if(input < currentNode.getData()) {
+        if (input < currentNode.getData()) {
             currentNode.setLeft(deleteNodeRecursive(input, currentNode.getLeft()));
             return currentNode;
         }
-        if(input > currentNode.getData()){
+        if (input > currentNode.getData()) {
             currentNode.setRight(deleteNodeRecursive(input, currentNode.getRight()));
             return currentNode;
         }
