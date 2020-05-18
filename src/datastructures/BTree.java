@@ -109,19 +109,22 @@ public class BTree {
         btree.add(10);
         btree.add(1); //Duplicate element
 
+        System.out.print("Printing in DFS: ");
         btree.printDFSInOrder();
+        System.out.print("Printing in BFS: ");
         btree.printBFS();
 
         System.out.println("5 in tree: " + btree.search(5));
         System.out.println("10 in tree: " + btree.search(10));
 
         btree.delete(6);
+        System.out.print("Printing in DFS: ");
         btree.printDFSInOrder();
         System.out.println("Root: " + btree.root.getData());
 
     }
 
-    public static class TreeNode {
+    private static class TreeNode {
 
         private TreeNode left;
         private TreeNode right;
