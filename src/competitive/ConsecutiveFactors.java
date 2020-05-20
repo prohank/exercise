@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * Eagleview - Codility
+ * Limited testing
  */
 public class ConsecutiveFactors {
 

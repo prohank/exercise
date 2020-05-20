@@ -2,6 +2,7 @@ package competitive;
 
 /**
  * Eagleview - Codility
+ * Limited testing
  */
 public class ArraySumZero {
     public static void main(String[] args) {

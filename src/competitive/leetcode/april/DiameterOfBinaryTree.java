@@ -2,6 +2,9 @@ package competitive.leetcode.april;
 
 /**
  * https://leetcode.com/problems/diameter-of-binary-tree/
+ *
+ * This problem was not solved. Below answer is taken from Solutions.
+ *
  */
 public class DiameterOfBinaryTree {
     int ans;
