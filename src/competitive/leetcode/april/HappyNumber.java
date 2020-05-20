@@ -3,6 +3,9 @@ package competitive.leetcode.april;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * https://leetcode.com/problems/happy-number/
+ */
 public class HappyNumber {
     public static void main(String[] args) {
         HappyNumber hn = new HappyNumber();

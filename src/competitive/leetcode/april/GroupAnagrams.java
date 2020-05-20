@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 
 
+/**
+ * https://leetcode.com/problems/group-anagrams/
+ */
 public class GroupAnagrams {
     public static void main(String[] args) {
         GroupAnagrams ga = new GroupAnagrams();
@@ -34,6 +37,7 @@ public class GroupAnagrams {
 
 
 //////////////////////////////////////////////////////////////////
+    // Inefficient solution - Time limit exceeds
 //    public List<List<String>> groupAnagrams(String[] strs) {
 //        List<List<String>> anagrams = new ArrayList<>();
 //        Set<String> stringSet = new HashSet<>();

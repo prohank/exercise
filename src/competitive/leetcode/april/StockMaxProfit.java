@@ -1,5 +1,8 @@
 package competitive.leetcode.april;
 
+/**
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+ */
 public class StockMaxProfit {
     public static void main(String[] args) {
         StockMaxProfit smp = new StockMaxProfit();

@@ -1,5 +1,8 @@
 package competitive.leetcode.april;
 
+/**
+ * https://leetcode.com/problems/middle-of-the-linked-list/
+ */
 public class MiddleOfLinkedList {
     public static void main(String[] args) {
         MiddleOfLinkedList mol = new MiddleOfLinkedList();

@@ -2,6 +2,9 @@ package competitive.leetcode.april;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/single-number/
+ */
 public class SingleNumber {
     public static void main(String[] args) {
         SingleNumber sn = new SingleNumber();

@@ -1,5 +1,8 @@
 package competitive.leetcode.april;
 
+/**
+ * https://leetcode.com/problems/maximum-subarray/
+ */
 public class MaximumSubarray {
 
     public static void main(String[] args) {

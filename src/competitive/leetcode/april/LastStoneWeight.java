@@ -5,6 +5,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * https://leetcode.com/problems/last-stone-weight/
+ */
 public class LastStoneWeight {
     public static void main(String[] args) {
         LastStoneWeight lsw = new LastStoneWeight();
@@ -27,6 +30,7 @@ public class LastStoneWeight {
 }
 
 /* Other solutions
+// Slightly less efficient
     public int lastStoneWeight(int[] stones) {
         List<Integer> nums = Arrays.stream(stones).boxed().collect(Collectors.toList());
         for (int i = nums.size() - 1; i > 0; i--) {
