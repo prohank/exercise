@@ -1,10 +1,11 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 import java.util.Stack;
 
 
 /**
  * https://leetcode.com/problems/backspace-string-compare/
+ * Date: 10-05-2020
  */
 public class BackspaceCompare {
     public static void main(String[] args) {

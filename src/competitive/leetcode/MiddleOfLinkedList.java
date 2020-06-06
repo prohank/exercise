@@ -1,7 +1,8 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 /**
  * https://leetcode.com/problems/middle-of-the-linked-list/
+ * Date: 10-05-2020
  */
 public class MiddleOfLinkedList {
     public static void main(String[] args) {

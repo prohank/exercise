@@ -1,7 +1,8 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 /**
  * https://leetcode.com/problems/min-stack/
+ * Date: 10-05-2020
  */
 public class MinStack {
 

@@ -1,8 +1,8 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 /**
  * https://leetcode.com/problems/valid-parenthesis-string/
- *
+ * Date: 20-05-2020
  * This code is taken from Solutions.
  */
 public class ValidParenthesisString {

@@ -1,13 +1,13 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-
 /**
  * https://leetcode.com/problems/group-anagrams/
+ * Date: 08-05-2020
  */
 public class GroupAnagrams {
     public static void main(String[] args) {

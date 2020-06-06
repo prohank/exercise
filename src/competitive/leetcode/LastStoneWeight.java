@@ -1,12 +1,10 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * https://leetcode.com/problems/last-stone-weight/
+ * Date: 19-05-2020
  */
 public class LastStoneWeight {
     public static void main(String[] args) {

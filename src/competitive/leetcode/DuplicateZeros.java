@@ -1,10 +1,9 @@
-package competitive.leetcode.april;
-
-import java.util.Arrays;
+package competitive.leetcode;
 
 
 /**
  * https://leetcode.com/problems/duplicate-zeros/
+ * Date: 02-06-2020
  */
 
 public class DuplicateZeros {

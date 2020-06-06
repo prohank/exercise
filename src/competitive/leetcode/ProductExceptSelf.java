@@ -1,9 +1,10 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/product-of-array-except-self/
+ * Date: 27-05-2020
  */
 public class ProductExceptSelf {
 

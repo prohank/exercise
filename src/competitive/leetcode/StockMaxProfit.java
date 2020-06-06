@@ -1,7 +1,8 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 /**
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+ * Date: 08-05-2020
  */
 public class StockMaxProfit {
     public static void main(String[] args) {

@@ -1,7 +1,8 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 /**
  * https://leetcode.com/problems/contiguous-array/
+ * Date: 21-05-2020
  * Solution below exceeds Time limit
  */
 public class ContiguousArray {

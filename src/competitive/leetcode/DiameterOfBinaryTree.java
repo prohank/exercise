@@ -1,8 +1,8 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 /**
  * https://leetcode.com/problems/diameter-of-binary-tree/
- *
+ * Date: 19-05-2020
  * This problem was not solved. Below answer is taken from Solutions.
  *
  */

@@ -1,9 +1,10 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/single-number/
+ * Date: 06-05-2020
  */
 public class SingleNumber {
     public static void main(String[] args) {

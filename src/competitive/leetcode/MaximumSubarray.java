@@ -1,7 +1,8 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 /**
  * https://leetcode.com/problems/maximum-subarray/
+ * Date: 06-05-2020
  */
 public class MaximumSubarray {
 

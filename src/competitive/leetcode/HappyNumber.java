@@ -1,10 +1,11 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * https://leetcode.com/problems/happy-number/
+ * Date: 06-05-2020
  */
 public class HappyNumber {
     public static void main(String[] args) {

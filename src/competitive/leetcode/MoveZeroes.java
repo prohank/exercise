@@ -1,9 +1,10 @@
-package competitive.leetcode.april;
+package competitive.leetcode;
 
 import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/move-zeroes/
+ * Date: 07-05-2020
  */
 public class MoveZeroes {
 
