@@ -17,7 +17,6 @@ public class InsertionSort {
     }
 
     private static void sort(int[] arr) {
-        int count = 0;
         for (int i = 1; i < arr.length; i++) {
             int k = arr[i];
             int j = i - 1;
@@ -26,9 +25,7 @@ public class InsertionSort {
                 j--;
             }
             arr[j + 1] = k;
-            count++;
-            System.out.println("Intermediate: " + Arrays.toString(arr));
+            System.out.println(i + " Intermediate: " + Arrays.toString(arr));
         }
-        System.out.println(count);
     }
 }

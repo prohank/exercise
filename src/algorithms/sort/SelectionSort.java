@@ -2,6 +2,10 @@ package algorithms.sort;
 
 import java.util.Arrays;
 
+/**
+ * The selection sort algorithm sorts an array by repeatedly finding the minimum element
+ * from unsorted part and putting it at the beginning.
+ */
 public class SelectionSort {
     public static void main(String[] args) {
         int[] arr = new int[]{12, 11, 13, 5, 6, 7, 13, 0};
@@ -13,13 +17,13 @@ public class SelectionSort {
     private static void sort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int minIndex = i;
-            int j;
-            for (j = i + 1; j < arr.length; j++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 if (arr[minIndex] > arr[j]) {
                     minIndex = j;
                 }
             }
-            if( minIndex == i) break; //If minimum index is not changed then array is sorted and no more swapping is required
+            if (minIndex == i)
+                break; //If minimum index is not changed then array is sorted and no more swapping is required
 
             int temp = arr[minIndex];
             arr[minIndex] = arr[i];
