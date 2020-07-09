@@ -22,9 +22,6 @@ public class SelectionSort {
                     minIndex = j;
                 }
             }
-            if (minIndex == i)
-                break; //If minimum index is not changed then array is sorted and no more swapping is required
-
             int temp = arr[minIndex];
             arr[minIndex] = arr[i];
             arr[i] = temp;
