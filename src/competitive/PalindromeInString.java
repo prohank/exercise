@@ -24,7 +24,7 @@ public class PalindromeInString {
                     palindromeString = checkPalindrome(s.substring(i,j+1)) ? s.substring(i,j+1) : null;
                     if(null != palindromeString) {
                         palindromes.add(palindromeString);
-                        i+=palindromeString.length()/2;
+                        i+=palindromeString.length()/2; //Skip checking for palindromes within an identified palindrome i.e skip ADA in MADAM
                         break;
                     }
                 }
