@@ -1,6 +1,10 @@
 package datastructures;
 
 
+/**
+ * LinkedList implementation class
+ * @param <E>
+ */
 public class LinkedList<E> {
 
     private Node<E> head;
@@ -16,6 +20,11 @@ public class LinkedList<E> {
         size++;
     }
 
+    /**
+     * Add element at the first position in the linked list
+     * @param data
+     * @return
+     */
     public boolean addFirst(E data) {
         Node<E> newNode = new Node<>(data, head);
         if (head == null) head = tail = newNode;
@@ -27,6 +36,11 @@ public class LinkedList<E> {
         return true;
     }
 
+    /**
+     * Add element at the last position in the linked list
+     * @param data
+     * @return
+     */
     public boolean addLast(E data) {
         Node<E> newNode = new Node<>(data, null);
         if (tail == null) head = tail = newNode;
@@ -38,6 +52,11 @@ public class LinkedList<E> {
         return true;
     }
 
+    /**
+     * Remove all elements from the linked list that match the argument
+     * @param data
+     * @return
+     */
     public boolean delete(E data) {
         boolean found = false;
         if (head == null) return false;
@@ -68,14 +87,37 @@ public class LinkedList<E> {
         return found;
     }
 
+    /**
+     * Look up for the input data in linked list
+     * @param data
+     * @return
+     */
+    public boolean find(E data){
+        if (head == null) return false;
+        Node<E> node = head;
+        while(null != node.getNext()){
+            if(node.getData().equals(data)) return true;
+            node = node.getNext();
+        }
+        return false;
+    }
+    /**
+     * Gets the size of the linked list
+     * @return
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * Prints out the elements in the linked list
+     * @param list
+     */
     public void print(LinkedList<E> list) {
         System.out.println(list.toString());
     }
 
+    @Override
     public String toString() {
         if (size == 0) return "[]";
         Node<E> node = head;
@@ -103,23 +145,30 @@ public class LinkedList<E> {
         ll.print(ll);
         ll.addLast("third");
         ll.print(ll);
-//        ll.addLast("fourth");
-//        ll.print(ll);
-//        ll.addLast("last");
-//        ll.print(ll);
+        ll.addLast("fourth");
+        ll.print(ll);
+        ll.addLast("last");
+        ll.print(ll);
         System.out.println("Deleting unknown from list:" + ll.delete("unknown"));
         ll.print(ll);
         System.out.println("Deleting first from list:" + ll.delete("first"));
         ll.print(ll);
-//        System.out.println("Deleting last from list:" + ll.delete("last"));
-//        ll.print(ll);
-//        System.out.println("Deleting third from list:" + ll.delete("third"));
-//        ll.print(ll);
+        System.out.println("Deleting last from list:" + ll.delete("last"));
+        ll.print(ll);
+        System.out.println("Deleting third from list:" + ll.delete("third"));
+        ll.print(ll);
         System.out.println("List size: " + ll.getSize());
+        System.out.println("Find first: " + ll.find("first"));
+        System.out.println("Find tenth: " + ll.find("second"));
     }
 }
 
 
+/**
+ * Node class for storing data and reference of adjacent node in linkedlist
+ *
+ * @param <E>
+ */
 class Node<E> {
     private Node<E> next;
     private E data;
