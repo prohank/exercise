@@ -3,6 +3,7 @@ package datastructures;
 
 /**
  * LinkedList implementation class
+ *
  * @param <E>
  */
 public class LinkedList<E> {
@@ -22,6 +23,7 @@ public class LinkedList<E> {
 
     /**
      * Add element at the first position in the linked list
+     *
      * @param data
      * @return
      */
@@ -38,6 +40,7 @@ public class LinkedList<E> {
 
     /**
      * Add element at the last position in the linked list
+     *
      * @param data
      * @return
      */
@@ -54,6 +57,7 @@ public class LinkedList<E> {
 
     /**
      * Remove all elements from the linked list that match the argument
+     *
      * @param data
      * @return
      */
@@ -89,20 +93,23 @@ public class LinkedList<E> {
 
     /**
      * Look up for the input data in linked list
+     *
      * @param data
      * @return
      */
-    public boolean find(E data){
+    public boolean find(E data) {
         if (head == null) return false;
         Node<E> node = head;
-        while(null != node.getNext()){
-            if(node.getData().equals(data)) return true;
+        while (null != node.getNext()) {
+            if (node.getData().equals(data)) return true;
             node = node.getNext();
         }
         return false;
     }
+
     /**
      * Gets the size of the linked list
+     *
      * @return
      */
     public int getSize() {
@@ -111,6 +118,7 @@ public class LinkedList<E> {
 
     /**
      * Prints out the elements in the linked list
+     *
      * @param list
      */
     public void print(LinkedList<E> list) {
@@ -133,6 +141,62 @@ public class LinkedList<E> {
         }
     }
 
+
+    /**
+     * Node class for storing data and reference of adjacent node in linkedlist
+     *
+     * @param <E>
+     */
+    private static class Node<E> {
+        private Node<E> next;
+        private E data;
+
+        Node(E data, Node<E> node) {
+            this.data = data;
+            this.next = node;
+        }
+
+        public Node<E> getNext() {
+            return next;
+        }
+
+        public void setNext(Node<E> next) {
+            this.next = next;
+        }
+
+        public E getData() {
+            return data;
+        }
+
+        public void setData(E data) {
+            this.data = data;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Node<?> node = (Node<?>) o;
+
+            if (next != null ? !next.equals(node.next) : node.next != null) return false;
+            return data.equals(node.data);
+        }
+
+        @Override
+        public int hashCode() {
+            int result = next != null ? next.hashCode() : 0;
+            result = 31 * result + data.hashCode();
+            return result;
+        }
+    }
+
+
+    /**
+     * Main Method
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         System.out.println("Testing LinkedList");
         LinkedList<String> ll = new LinkedList<>("first");
@@ -160,55 +224,5 @@ public class LinkedList<E> {
         System.out.println("List size: " + ll.getSize());
         System.out.println("Find first: " + ll.find("first"));
         System.out.println("Find tenth: " + ll.find("second"));
-    }
-}
-
-
-/**
- * Node class for storing data and reference of adjacent node in linkedlist
- *
- * @param <E>
- */
-class Node<E> {
-    private Node<E> next;
-    private E data;
-
-    Node(E data, Node<E> node) {
-        this.data = data;
-        this.next = node;
-    }
-
-    public Node<E> getNext() {
-        return next;
-    }
-
-    public void setNext(Node<E> next) {
-        this.next = next;
-    }
-
-    public E getData() {
-        return data;
-    }
-
-    public void setData(E data) {
-        this.data = data;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Node<?> node = (Node<?>) o;
-
-        if (next != null ? !next.equals(node.next) : node.next != null) return false;
-        return data.equals(node.data);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = next != null ? next.hashCode() : 0;
-        result = 31 * result + data.hashCode();
-        return result;
     }
 }

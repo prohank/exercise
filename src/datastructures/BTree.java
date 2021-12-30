@@ -98,31 +98,6 @@ public class BTree {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        BTree btree = new BTree();
-        btree.add(6);
-        btree.add(3);
-        btree.add(4);
-        btree.add(1);
-        btree.add(8);
-        btree.add(9);
-        btree.add(10);
-        btree.add(1); //Duplicate element
-
-        System.out.print("Printing in DFS: ");
-        btree.printDFSInOrder();
-        System.out.print("Printing in BFS: ");
-        btree.printBFS();
-
-        System.out.println("5 in tree: " + btree.search(5));
-        System.out.println("10 in tree: " + btree.search(10));
-
-        btree.delete(6);
-        System.out.print("Printing in DFS: ");
-        btree.printDFSInOrder();
-        System.out.println("Root: " + btree.root.getData());
-
-    }
 
     private static class TreeNode {
 
@@ -157,5 +132,31 @@ public class BTree {
         public void setData(int data) {
             this.data = data;
         }
+    }
+
+    public static void main(String[] args) {
+        BTree btree = new BTree();
+        btree.add(6);
+        btree.add(3);
+        btree.add(4);
+        btree.add(1);
+        btree.add(8);
+        btree.add(9);
+        btree.add(10);
+        btree.add(1); //Duplicate element
+
+        System.out.print("Printing in DFS: ");
+        btree.printDFSInOrder();
+        System.out.print("Printing in BFS: ");
+        btree.printBFS();
+
+        System.out.println("5 in tree: " + btree.search(5));
+        System.out.println("10 in tree: " + btree.search(10));
+
+        btree.delete(6);
+        System.out.print("Printing in DFS: ");
+        btree.printDFSInOrder();
+        System.out.println("Root: " + btree.root.getData());
+
     }
 }

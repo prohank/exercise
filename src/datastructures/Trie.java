@@ -73,39 +73,39 @@ public class Trie {
                 }
         }
     }
-}
 
-class TrieNode {
-    private final TrieNode[] links;
-    private final int ALPHA_SIZE = 26;
-    private boolean isEnd;
+    private static class TrieNode {
+        private final TrieNode[] links;
+        private final int ALPHA_SIZE = 26;
+        private boolean isEnd;
 
-    TrieNode() {
-        links = new TrieNode[ALPHA_SIZE];
-    }
+        TrieNode() {
+            links = new TrieNode[ALPHA_SIZE];
+        }
 
-    public boolean containsChar(int ch) {
-        return links[ch - 'a'] != null;
-    }
+        public boolean containsChar(int ch) {
+            return links[ch - 'a'] != null;
+        }
 
-    public TrieNode get(int ch) {
-        return links[ch - 'a'];
-    }
+        public TrieNode get(int ch) {
+            return links[ch - 'a'];
+        }
 
 
-    public void put(int ch, TrieNode node) {
-        this.links[ch - 'a'] = node;
-    }
+        public void put(int ch, TrieNode node) {
+            this.links[ch - 'a'] = node;
+        }
 
-    public boolean isEnd() {
-        return isEnd;
-    }
+        public boolean isEnd() {
+            return isEnd;
+        }
 
-    public void setEnd() {
-        isEnd = Boolean.TRUE;
-    }
+        public void setEnd() {
+            isEnd = Boolean.TRUE;
+        }
 
-    public TrieNode getChild(int i) {
-        return links[i];
+        public TrieNode getChild(int i) {
+            return links[i];
+        }
     }
 }
