@@ -119,10 +119,9 @@ public class LinkedList<E> {
     /**
      * Prints out the elements in the linked list
      *
-     * @param list
      */
-    public void print(LinkedList<E> list) {
-        System.out.println(list.toString());
+    public void print() {
+        System.out.println(this.toString());
     }
 
     @Override
@@ -143,56 +142,6 @@ public class LinkedList<E> {
 
 
     /**
-     * Node class for storing data and reference of adjacent node in linkedlist
-     *
-     * @param <E>
-     */
-    private static class Node<E> {
-        private Node<E> next;
-        private E data;
-
-        Node(E data, Node<E> node) {
-            this.data = data;
-            this.next = node;
-        }
-
-        public Node<E> getNext() {
-            return next;
-        }
-
-        public void setNext(Node<E> next) {
-            this.next = next;
-        }
-
-        public E getData() {
-            return data;
-        }
-
-        public void setData(E data) {
-            this.data = data;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            Node<?> node = (Node<?>) o;
-
-            if (next != null ? !next.equals(node.next) : node.next != null) return false;
-            return data.equals(node.data);
-        }
-
-        @Override
-        public int hashCode() {
-            int result = next != null ? next.hashCode() : 0;
-            result = 31 * result + data.hashCode();
-            return result;
-        }
-    }
-
-
-    /**
      * Main Method
      *
      * @param args
@@ -202,27 +151,76 @@ public class LinkedList<E> {
         LinkedList<String> ll = new LinkedList<>("first");
         System.out.println("Adding elements into list");
         ll.addFirst("first");
-        ll.print(ll);
+        ll.print();
         ll.addFirst("first");
-        ll.print(ll);
+        ll.print();
         ll.addLast("second");
-        ll.print(ll);
+        ll.print();
         ll.addLast("third");
-        ll.print(ll);
+        ll.print();
         ll.addLast("fourth");
-        ll.print(ll);
+        ll.print();
         ll.addLast("last");
-        ll.print(ll);
+        ll.print();
         System.out.println("Deleting unknown from list:" + ll.delete("unknown"));
-        ll.print(ll);
+        ll.print();
         System.out.println("Deleting first from list:" + ll.delete("first"));
-        ll.print(ll);
+        ll.print();
         System.out.println("Deleting last from list:" + ll.delete("last"));
-        ll.print(ll);
+        ll.print();
         System.out.println("Deleting third from list:" + ll.delete("third"));
-        ll.print(ll);
+        ll.print();
         System.out.println("List size: " + ll.getSize());
         System.out.println("Find first: " + ll.find("first"));
         System.out.println("Find tenth: " + ll.find("second"));
+    }
+}
+
+/**
+ * Node class for storing data and reference of adjacent node in linkedlist
+ *
+ * @param <E>
+ */
+class Node<E> {
+    private Node<E> next;
+    private E data;
+
+    Node(E data, Node<E> node) {
+        this.data = data;
+        this.next = node;
+    }
+
+    public Node<E> getNext() {
+        return next;
+    }
+
+    public void setNext(Node<E> next) {
+        this.next = next;
+    }
+
+    public E getData() {
+        return data;
+    }
+
+    public void setData(E data) {
+        this.data = data;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Node<?> node = (Node<?>) o;
+
+        if (next != null ? !next.equals(node.next) : node.next != null) return false;
+        return data.equals(node.data);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = next != null ? next.hashCode() : 0;
+        result = 31 * result + data.hashCode();
+        return result;
     }
 }
