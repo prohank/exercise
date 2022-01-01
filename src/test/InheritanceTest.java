@@ -1,3 +1,5 @@
+package test;
+
 public class InheritanceTest {
     public static void main(String[] args) {
         Parent p = new Parent();
@@ -29,7 +31,7 @@ class Parent {
     }
 
     void doSome(int number) {
-        System.out.println("Parent " + number);
+        System.out.println("test.Parent " + number);
     }
 }
 
@@ -42,20 +44,20 @@ class Child1 extends Parent {
     }
 
     void doSome(Number number) {
-        System.out.println("Parent Child1 " + number);
+        System.out.println("test.Parent test.Child1 " + number);
     }
 
     void doChild1() {
-        System.out.println("Only Child1");
+        System.out.println("Only test.Child1");
     }
 }
 
 class Child2 extends Parent {
     void doSome(Number integer) {
-        System.out.println("Parent Child2 " + integer);
+        System.out.println("test.Parent test.Child2 " + integer);
     }
 
     void doChild2() {
-        System.out.println("Only Child2");
+        System.out.println("Only test.Child2");
     }
 }

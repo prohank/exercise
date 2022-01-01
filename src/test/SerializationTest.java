@@ -1,3 +1,5 @@
+package test;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -69,7 +71,7 @@ class SerializeA implements Serializable {
 
     @Override
     public String toString() {
-        return "SerializeA{" +
+        return "test.SerializeA{" +
                 "field1='" + field1 + '\'' +
                 ", field2='" + field2 + '\'' +
                 ", field3='" + field3 + '\'' +

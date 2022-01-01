@@ -1,3 +1,5 @@
+package test;
+
 public class ClassInitializationTest {
     static int i = 8;
 
