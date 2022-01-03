@@ -9,17 +9,16 @@ public class Matrix {
     public static void main(String[] args) {
         Matrix m = new Matrix();
         m.init();
-//        m.add(m.matrix_1, m.matrix_2);
-//        m.multiply(m.matrix_1, m.matrix_2);
-        m.transpose(m.matrix_1);
+        m.add(m.matrix_1, m.matrix_2);
+        m.multiply(m.matrix_1, m.matrix_2);
         m.rotateByNinety(m.matrix_1);
     }
 
     public void init() {
         matrix_1 = this.create();
         this.print(matrix_1);
-//        matrix_2 = this.create();
-//        this.print(matrix_2);
+        matrix_2 = this.create();
+        this.print(matrix_2);
     }
 
     public int[][] create() {
@@ -88,7 +87,7 @@ public class Matrix {
     }
 
     public void transpose(int[][] m) {
-        System.out.println("Transpose matrix:");
+        System.out.println("Transposing matrix:");
         if (!isSquareMatrix(m)) {
             m = transposeInNew(m);
         } else {
@@ -124,24 +123,40 @@ public class Matrix {
         return m;
     }
 
-    public void rotateByNinety(int[][] m) {
-        System.out.println("Rotate matrix anti-clockwise by 90 degrees:");
-        if (!isSquareMatrix(m)) {
-            System.out.println("ERROR:Matrix is not square");
-            return;
-        } else {
-            int n = m.length;
-            for (int i = 0; i < n / 2; i++) {
-                for (int j = i; j < n - i - 1; j++) {
-                    int value = m[i][j];
-                    m[i][j] = m[j][n - i - 1];
-                    m[j][n - i - 1] = m[n - i - 1][n - j - 1];
-                    m[n - i - 1][n - j - 1] = m[n - j - 1][i];
-                    m[n - j - 1][i] = value;
-                }
+    public void reverseColumns(int m[][]) {
+        System.out.println("Reversing matrix columns:");
+        for (int i = 0; i < m[0].length; i++) {
+            for (int j = 0, k = m[0].length - 1; j < k; j++, k--) {
+                int temp = m[j][i];
+                m[j][i] = m[k][i];
+                m[k][i] = temp;
             }
         }
         print(m);
+    }
+
+    public void rotateByNinety(int[][] m) {
+        System.out.println("Rotate matrix anti-clockwise by 90 degrees:");
+        transpose(m);
+        reverseColumns(m);
+
+//            Direct Approach:
+//        if (!isSquareMatrix(m)) {
+//            System.out.println("ERROR:Matrix is not square");
+//            return;
+//        } else {
+//            int n = m.length;
+//            for (int i = 0; i < n / 2; i++) {
+//                for (int j = i; j < n - i - 1; j++) {
+//                    int value = m[i][j];
+//                    m[i][j] = m[j][n - i - 1];
+//                    m[j][n - i - 1] = m[n - i - 1][n - j - 1];
+//                    m[n - i - 1][n - j - 1] = m[n - j - 1][i];
+//                    m[n - j - 1][i] = value;
+//                }
+//            }
+//        }
+//        print(m);
     }
 
     private void print(int[][] matrix) {
