@@ -13,39 +13,19 @@ public class AddTwoNumbers {
     private String getSum(ListNode l1, ListNode l2) {
         StringBuilder sum = new StringBuilder();
         int carry = 0;
-        while (l1 != null && l2 != null) {
-            int temp = l1.val + l2.val + carry;
-            if (temp > 9) {
-                sum.append(temp%10);
-                carry = 1;
-            } else {
-                sum.append(temp);
-                carry = 0;
+        while (l1 != null || l2 != null) {
+            int temp = 0;
+            if (l1 != null) {
+                temp += l1.val;
+                l1 = l1.next;
             }
-            l1 = l1.next;
-            l2 = l2.next;
-        }
-        while (l1 == null && l2 != null) {
-            int temp = l2.val + carry;
-            if (temp > 9) {
-                sum.append(temp%10);
-                carry = 1;
-            } else {
-                sum.append(temp);
-                carry = 0;
+            if (l2 != null) {
+                temp += l2.val;
+                l2 = l2.next;
             }
-            l2 = l2.next;
-        }
-        while (l1 != null) {
-            int temp = l1.val + carry;
-            if (temp > 9) {
-                sum.append(temp%10);
-                carry = 1;
-            } else {
-                sum.append(temp);
-                carry = 0;
-            }
-            l1 = l1.next;
+            temp += carry;
+            sum.append(temp % 10);
+            carry = temp/10;
         }
         if (carry != 0) {
             sum.append(carry);
