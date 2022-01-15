@@ -1,5 +1,8 @@
 package competitive.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/
  * Date: 12-01-2022
@@ -16,17 +19,38 @@ public class LongestSubString {
     }
 
     int longestSubstring(String s) {
-        int longestSubstring = 1;
+        int longestSubstringLength = 1;
         if (s == null || s.isEmpty()) return 0;
         for (int i = 0; i < s.length() - 1; i++) {
-            String subString = "";
+            int subStringLength = 0;
             for (int j = i; j < s.length() - 1; j++) {
                 if (!s.substring(i, j + 1).contains(String.valueOf(s.charAt(j + 1)))) {
-                    subString = s.substring(i, j + 2);
+                    subStringLength = s.substring(i, j + 2).length();
                 } else break;
             }
-            if (longestSubstring < subString.length()) longestSubstring = subString.length();
+            if (longestSubstringLength < subStringLength) longestSubstringLength = subStringLength;
         }
-        return longestSubstring;
+        return longestSubstringLength;
+    }
+
+    /**
+     * Other approach using HashSet
+     * @param s
+     * @return
+     */
+    int lengthOfLongestSubstring(String s) {
+        int i = 0, j = 0, max = 0;
+        Set<Character> set = new HashSet<>();
+
+        while (j < s.length()) {
+            if (!set.contains(s.charAt(j))) {
+                set.add(s.charAt(j++));
+                max = Math.max(max, set.size());
+            } else {
+                set.remove(s.charAt(i++));
+            }
+        }
+
+        return max;
     }
 }
