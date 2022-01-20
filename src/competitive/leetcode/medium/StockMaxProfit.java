@@ -1,4 +1,4 @@
-package competitive.leetcode;
+package competitive.leetcode.medium;
 
 /**
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/

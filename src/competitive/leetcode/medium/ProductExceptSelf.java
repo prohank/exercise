@@ -1,4 +1,4 @@
-package competitive.leetcode;
+package competitive.leetcode.medium;
 
 import java.util.Arrays;
 

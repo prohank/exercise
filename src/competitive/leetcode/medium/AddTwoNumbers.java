@@ -1,4 +1,6 @@
-package competitive.leetcode;
+package competitive.leetcode.medium;
+
+import competitive.leetcode.ListNode;
 
 /**
  * https://leetcode.com/problems/add-two-numbers/

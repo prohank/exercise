@@ -1,4 +1,4 @@
-package competitive.leetcode;
+package competitive.leetcode.easy;
 
 /**
  * https://leetcode.com/problems/diameter-of-binary-tree/

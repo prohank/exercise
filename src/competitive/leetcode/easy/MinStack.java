@@ -1,4 +1,4 @@
-package competitive.leetcode;
+package competitive.leetcode.easy;
 
 /**
  * https://leetcode.com/problems/min-stack/

@@ -1,4 +1,6 @@
-package competitive.leetcode;
+package competitive.leetcode.easy;
+
+import competitive.leetcode.ListNode;
 
 /**
  * https://leetcode.com/problems/middle-of-the-linked-list/
@@ -33,23 +35,6 @@ public class MiddleOfLinkedList {
         return currentNode;
     }
 
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
 }
 
 ///////////////////////////////////////////////////
