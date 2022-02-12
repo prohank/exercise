@@ -34,9 +34,7 @@ import java.util.List;
  * Sample Input For Custom Testing
  * n = 5 lo = 4 hi = 11
  * Sample Output
- * 10
- * 11
- * 10
+ * 10 11 10 9 8
  * Explanation
  * Since 11 is the upper bound, a sequence starting with 11 cannot be strictly increasing at the first.
  * The next best answer is the sequence starting with 10, which is [10, 11, 10, 9, 8].
@@ -55,21 +53,28 @@ public class SequenceReconstruction {
 
     public static void main(String[] args) {
         System.out.println(SequenceReconstruction.constructSequence(5, 3, 10)); //[9,10,9,8,7]
+        System.out.println(SequenceReconstruction.constructSequence(5, 5, 10)); //[9,10,9,8,7]
+        System.out.println(SequenceReconstruction.constructSequence(5, 6, 10)); //[9,10,9,8,7]
+        System.out.println(SequenceReconstruction.constructSequence(5, 7, 10)); //[9,10,9,8,7]
+        System.out.println(SequenceReconstruction.constructSequence(5, 8, 10)); //[8,9,10,9,8]
+        System.out.println(SequenceReconstruction.constructSequence(5, 9, 10)); //[-1]
+        System.out.println(SequenceReconstruction.constructSequence(6, 9, 12)); //[10,11,12,11,10,9]
+        System.out.println(SequenceReconstruction.constructSequence(6, 8, 12)); //[11,12,11,10,9,8]
     }
 
     public static List<Integer> constructSequence(int n, int lo, int hi) {
         // Write your code here
         List<Integer> sequence = new ArrayList<>();
-        int range = (hi - lo) * 2 - 1;
+        int range = (hi - lo) * 2 + 1;
         if (n > range) {
             sequence.add(-1);
         } else {
             int decreasingSequenceMaxCount = 0;
             int increasingSequenceMaxCount = 0;
-            if (hi - lo > n - 1) {
-                decreasingSequenceMaxCount = hi - lo - n + 1;
+            if (hi - lo >= n - 1) {
+                decreasingSequenceMaxCount = n - 2;
             } else {
-                decreasingSequenceMaxCount = hi - lo - 1;
+                decreasingSequenceMaxCount = hi - lo;
             }
             increasingSequenceMaxCount = n - decreasingSequenceMaxCount;
             int count = increasingSequenceMaxCount;
