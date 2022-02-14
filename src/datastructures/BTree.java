@@ -10,6 +10,10 @@ public class BTree {
         root = addRecursive(input, root);
     }
 
+    public TreeNode getRoot() {
+        return root;
+    }
+
     private TreeNode addRecursive(int input, TreeNode currentNode) {
         if (currentNode == null) {
             return new TreeNode(input);
@@ -88,50 +92,24 @@ public class BTree {
         if (root == null) System.out.println();
 
         Queue<TreeNode> nodes = new LinkedList<>();
+        Queue<TreeNode> childNodes = new LinkedList<>();
         nodes.add(root);
         while (!nodes.isEmpty()) {
             TreeNode currentNode = nodes.remove();
-            System.out.print(" " + currentNode.getData());
-            if (null != currentNode.getLeft()) nodes.add(currentNode.getLeft());
-            if (null != currentNode.getRight()) nodes.add(currentNode.getRight());
+            System.out.print(currentNode.getData()+"\t");
+            if (null != currentNode.getLeft()) {
+                childNodes.add(currentNode.getLeft());
+            }
+            if (null != currentNode.getRight()) {
+                childNodes.add(currentNode.getRight());
+            }
+            if(nodes.isEmpty()){
+                System.out.println();
+                nodes.addAll(childNodes);
+                childNodes.clear();
+            }
         }
         System.out.println();
-    }
-
-
-    private static class TreeNode {
-
-        private TreeNode left;
-        private TreeNode right;
-        private int data;
-
-        TreeNode(int data) {
-            this.data = data;
-        }
-
-        public TreeNode getLeft() {
-            return left;
-        }
-
-        public void setLeft(TreeNode left) {
-            this.left = left;
-        }
-
-        public TreeNode getRight() {
-            return right;
-        }
-
-        public void setRight(TreeNode right) {
-            this.right = right;
-        }
-
-        public int getData() {
-            return data;
-        }
-
-        public void setData(int data) {
-            this.data = data;
-        }
     }
 
     public static void main(String[] args) {
@@ -145,11 +123,10 @@ public class BTree {
         btree.add(10);
         btree.add(1); //Duplicate element
 
-        System.out.print("Printing in DFS: ");
+        System.out.println("Printing in DFS: ");
         btree.printDFSInOrder();
-        System.out.print("Printing in BFS: ");
+        System.out.println("Printing in BFS: ");
         btree.printBFS();
-
         System.out.println("5 in tree: " + btree.search(5));
         System.out.println("10 in tree: " + btree.search(10));
 
