@@ -3,7 +3,7 @@ package datastructures;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BTree {
+public class BinarySearchTree {
     private TreeNode root;
 
     public void add(int input) {
@@ -113,7 +113,7 @@ public class BTree {
     }
 
     public static void main(String[] args) {
-        BTree btree = new BTree();
+        BinarySearchTree btree = new BinarySearchTree();
         btree.add(6);
         btree.add(3);
         btree.add(4);
