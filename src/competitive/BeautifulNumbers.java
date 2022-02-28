@@ -76,7 +76,7 @@ public class BeautifulNumbers {
             squareSum += digit * digit;
             num = num / 10;
         }
-        if (squareSum == 1) {
+        if (squareSum == 1 || squareSum == 7) {
             return 1;
         } else if (squareSum / 10 == 0) {
             return 0;
