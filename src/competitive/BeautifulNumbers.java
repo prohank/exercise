@@ -1,5 +1,8 @@
 package competitive;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 /**
  * Hackerearth - Paypal
  * 26-02-2022
@@ -52,6 +55,7 @@ public class BeautifulNumbers {
         System.out.println(solve(1, 10)); //18
         System.out.println(solve(1, 1000000));
         System.out.println(solve(3, 2834)); //596941
+        System.out.println(solve(1161, 1571)); //85212
     }
 
     static long solve(int l, int r) {
@@ -84,4 +88,40 @@ public class BeautifulNumbers {
             return getSquareSum(0, squareSum);
         }
     }
+
+//    Another approach:
+//    Using ugly set that gets updated with numbers that are not beautiful in every number check.
+//    This set will prevent a number from further evaluation if it has already been encountered before and considered not beautiful
+//    static long solve(int l, int r) {
+//        // Your code goes here
+//        long result = 0;
+//        HashSet<Long> uglySet = new HashSet<>(Arrays.asList(0l,2l,3l,4l,5l,6l,8l,9l));
+//        for (long i = l; i <= r; i++) {
+//            long squareSum = 0;
+//            HashSet<Long> tempSet = new HashSet<>();
+//            squareSum = getSquareSum(squareSum, i, uglySet, tempSet);
+//            if (squareSum == 1) {
+//                result += i;
+//            }
+//        }
+//        return result;
+//    }
+//
+//    private static long getSquareSum(long squareSum, long num, HashSet<Long> uglySet, HashSet<Long> tempSet) {
+//        if(uglySet.contains(num)){
+//            uglySet.addAll(tempSet);
+//            return 0;
+//        }
+//        while (num > 0) {
+//            long digit = num % 10;
+//            squareSum += digit * digit;
+//            num = num / 10;
+//        }
+//        tempSet.add(squareSum);
+//        if (squareSum == 1 || squareSum == 7) {
+//            return 1;
+//        } else {
+//            return getSquareSum(0, squareSum, uglySet, tempSet);
+//        }
+//    }
 }

@@ -39,81 +39,72 @@ import java.util.List;
  * direction = [1, -1, 1]
  * strength = [5, 3, 1]
  * Sample Output
+ * [0,2]
  * Explanation
  * The first and the third balls are moving right and the second ball is moving left.
  * The first and the second balls will collide at some point and the ball with higher strength, ball 0, remains.
  * The third ball does not collide with any ball.
- *
  */
 public class BallCollision {
     public static void main(String[] args) {
-        List<Integer> direction = Arrays.asList(1, -1, 1, 1);
-        List<Integer> strength = Arrays.asList(16, 10, 4, 1);
-        System.out.println("strength:" + strength);
-        System.out.println("direction:" + direction);
-        System.out.println(BallCollision.findRemainingBalls(direction, strength));
+        int[] direction1 = new int[]{1, -1, -1, 1};
+        int[] strength1 = new int[]{16, 10, 4, 1};
+        System.out.println("strength1:" + Arrays.toString(strength1) + " direction1:" + Arrays.toString(direction1));
+        System.out.println(BallCollision.findRemainingBalls(direction1, strength1));
+        int[] direction2 = new int[]{1, -1, -1, 1};
+        int[] strength2 = new int[]{10, 16, 4, 10};
+        System.out.println("strength2:" + Arrays.toString(strength2) + " direction2:" + Arrays.toString(direction2));
+        System.out.println(BallCollision.findRemainingBalls(direction2, strength2));
     }
 
-    public static List<Integer> findRemainingBalls(List<Integer> direction, List<Integer> strength) {
+    public static List<Integer> findRemainingBalls(int[] direction, int[] strength) {
         List<Integer> ballsList = new ArrayList<>();
-        int noOfBalls = direction.size();
+        int noOfBalls = direction.length;
         if (noOfBalls == 1) {
             ballsList.add(0);
             return ballsList;
         }
-//        while (strength.size() > 1 && direction.contains(-1) && direction.contains(1)) {
-        for (int i = 0, j = i + 1; i < noOfBalls && j < noOfBalls; ) {
-            if (strength.get(i) == 0 || strength.get(j) == 0) {
+        for (int i = 0, j = i + 1; i < noOfBalls && j < noOfBalls; j++) {
+            if (strength[i] == 0) {
                 i++;
-                j++;
+                continue;
+            } else if(strength[j] == 0){
                 continue;
             }
 
-            if (direction.get(i) != direction.get(j)) {
-                int stengthi = strength.get(i);
-                int strengthj = strength.get(j);
-                int sum = (direction.get(i) * stengthi) + (direction.get(j) * strengthj);
+            if (direction[i] != direction[j]) {
+                int stengthi = strength[i];
+                int strengthj = strength[j];
+                int sum = (direction[i] * stengthi) + (direction[j] * strengthj);
                 int absSum = Math.abs(sum);
                 if (stengthi > strengthj) {
-                    strength.remove(i);
-                    strength.add(i, absSum);
-                    strength.remove(j);
-                    strength.add(j, 0);
-                    direction.remove(i);
-                    direction.add(i, sum / absSum);
-                    direction.remove(j);
-                    direction.add(j, 0);
+                    strength[i] = absSum;
+                    strength[j] = 0;
+                    direction[i] = sum / absSum;
+                    direction[j] = 0;
                 } else if (stengthi < strengthj) {
-                    strength.remove(j);
-                    strength.add(j, absSum);
-                    strength.remove(i);
-                    strength.add(i, 0);
-                    direction.remove(j);
-                    direction.add(j, sum / absSum);
-                    direction.remove(i);
-                    direction.add(i, 0);
+                    strength[j] = absSum;
+                    strength[i] = 0;
+                    direction[j] = sum / absSum;
+                    direction[i] = 0;
+                    i++;
                 } else {
-                    strength.remove(j);
-                    strength.add(j, 0);
-                    strength.remove(i);
-                    strength.add(i, 0);
-                    direction.remove(j);
-                    direction.add(j, 0);
-                    direction.remove(i);
-                    direction.add(i, 0);
+                    strength[j] = 0;
+                    strength[i] = 0;
+                    direction[j] = 0;
+                    direction[i] = 0;
+                    i=j;
                 }
+            } else {
+                i++;
             }
-            i = j;
-            j++;
-            System.out.println("strength:" + strength);
-            System.out.println("direction:" + direction);
+            System.out.println("strength:" + Arrays.toString(strength) + " direction:" + Arrays.toString(direction));
         }
-        for (int k = 0; k < strength.size(); k++) {
-            if (strength.get(k) != 0) {
+        for (int k = 0; k < strength.length; k++) {
+            if (strength[k] != 0) {
                 ballsList.add(k);
             }
         }
-//        }
         return ballsList;
     }
 }
