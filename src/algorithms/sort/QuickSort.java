@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 /**
  * In this sorting a pivot is selected on which the comparison of the numbers is based.
- *
+ * <p>
  * Position of the pivot is not important but should be fixed throughout the program.
- *
+ * <p>
  * Objective is to have all smaller numbers than the pivot on left and all greater numbers to the right and do it
  * till all the numbers are sorted.
- *
+ * <p>
  * In the given program comparison starts from both the ends (left and right).
  * If the number to the left is greater than the pivot and number to the right is smaller then the two
  * numbers are swapped.
@@ -18,11 +18,11 @@ import java.util.Arrays;
  * and to the right will all bigger numbers than itself.
  * But these numbers are still unsorted so above program will again repeat for these two subarrays till a sorted
  * array is obtained.
- *
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{12, 11, 13, 5, 6, 7, 13, 0};
+        int[] arr = new int[]{12, 0, 13, 6, 5, 7, 13, 11};
+        System.out.println("Quick Sort");
         System.out.println("Before sorting: " + Arrays.toString(arr));
         sort(arr, 0, arr.length - 1);
         System.out.println("After sorting: " + Arrays.toString(arr));
@@ -37,6 +37,7 @@ public class QuickSort {
             while (arr[i] < pivot) i++;
             while (arr[j] > pivot) j--;
             if (i <= j) {
+                System.out.print("Pivot:"+pivot+", ");
                 swap(arr, i, j);
                 i++;
                 j--;
@@ -47,8 +48,10 @@ public class QuickSort {
     }
 
     private static void swap(int[] arr, int i, int j) {
+        System.out.print("Swapping " + arr[i] + " with " + arr[j] + ": ");
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+        System.out.println(Arrays.toString(arr));
     }
 }
